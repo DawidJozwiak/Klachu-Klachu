@@ -14,6 +14,9 @@
 		243BB7492627C0DF00042984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 243BB7482627C0DF00042984 /* Assets.xcassets */; };
 		243BB74C2627C0DF00042984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243BB74A2627C0DF00042984 /* LaunchScreen.storyboard */; };
 		24631C26263D822200A41415 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24631C25263D822200A41415 /* FirstViewController.swift */; };
+		24631C2A263DC36A00A41415 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 24631C29263DC36A00A41415 /* README.md */; };
+		24631C2E263DE4E800A41415 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24631C2D263DE4E800A41415 /* SignUpViewController.swift */; };
+		24631C31263DEDEB00A41415 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24631C30263DEDEB00A41415 /* SignInViewController.swift */; };
 		2482D3562628B3330055C78D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2482D3552628B3330055C78D /* GoogleService-Info.plist */; };
 		F4CF3174F9B4E4DE45E6DDE6 /* Pods_Klachu_Klachu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE41F58375A2A874CE2F251 /* Pods_Klachu_Klachu.framework */; };
 /* End PBXBuildFile section */
@@ -29,6 +32,9 @@
 		243BB74B2627C0DF00042984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		243BB74D2627C0DF00042984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24631C25263D822200A41415 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		24631C29263DC36A00A41415 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; usesTabs = 0; };
+		24631C2D263DE4E800A41415 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		24631C30263DEDEB00A41415 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		2482D3552628B3330055C78D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3237186FD83D1700649C250C /* Pods-Klachu-Klachu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Klachu-Klachu.debug.xcconfig"; path = "Target Support Files/Pods-Klachu-Klachu/Pods-Klachu-Klachu.debug.xcconfig"; sourceTree = "<group>"; };
 		9E4BCDED16CDB8FE60CB5830 /* Pods-Klachu-Klachu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Klachu-Klachu.release.xcconfig"; path = "Target Support Files/Pods-Klachu-Klachu/Pods-Klachu-Klachu.release.xcconfig"; sourceTree = "<group>"; };
@@ -49,6 +55,7 @@
 		243BB7332627C0DB00042984 = {
 			isa = PBXGroup;
 			children = (
+				24631C29263DC36A00A41415 /* README.md */,
 				243BB73E2627C0DB00042984 /* Klachu-Klachu */,
 				243BB73D2627C0DB00042984 /* Products */,
 				5897A80BE40963001957B6FA /* Pods */,
@@ -100,6 +107,8 @@
 			children = (
 				24631C25263D822200A41415 /* FirstViewController.swift */,
 				243BB7432627C0DB00042984 /* ViewController.swift */,
+				24631C2D263DE4E800A41415 /* SignUpViewController.swift */,
+				24631C30263DEDEB00A41415 /* SignInViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -182,6 +191,7 @@
 			files = (
 				243BB74C2627C0DF00042984 /* LaunchScreen.storyboard in Resources */,
 				2482D3562628B3330055C78D /* GoogleService-Info.plist in Resources */,
+				24631C2A263DC36A00A41415 /* README.md in Resources */,
 				243BB7492627C0DF00042984 /* Assets.xcassets in Resources */,
 				243BB7472627C0DC00042984 /* Main.storyboard in Resources */,
 			);
@@ -238,8 +248,10 @@
 			files = (
 				243BB7442627C0DB00042984 /* ViewController.swift in Sources */,
 				243BB7402627C0DB00042984 /* AppDelegate.swift in Sources */,
+				24631C31263DEDEB00A41415 /* SignInViewController.swift in Sources */,
 				243BB7422627C0DB00042984 /* SceneDelegate.swift in Sources */,
 				24631C26263D822200A41415 /* FirstViewController.swift in Sources */,
+				24631C2E263DE4E800A41415 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
