@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,9 +13,13 @@
 		243BB7472627C0DC00042984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243BB7452627C0DC00042984 /* Main.storyboard */; };
 		243BB7492627C0DF00042984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 243BB7482627C0DF00042984 /* Assets.xcassets */; };
 		243BB74C2627C0DF00042984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243BB74A2627C0DF00042984 /* LaunchScreen.storyboard */; };
+		24631C26263D822200A41415 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24631C25263D822200A41415 /* FirstViewController.swift */; };
+		2482D3562628B3330055C78D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2482D3552628B3330055C78D /* GoogleService-Info.plist */; };
+		F4CF3174F9B4E4DE45E6DDE6 /* Pods_Klachu_Klachu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE41F58375A2A874CE2F251 /* Pods_Klachu_Klachu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CE41F58375A2A874CE2F251 /* Pods_Klachu_Klachu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Klachu_Klachu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		243BB73C2627C0DB00042984 /* Klachu-Klachu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Klachu-Klachu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		243BB73F2627C0DB00042984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		243BB7412627C0DB00042984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,10 @@
 		243BB7482627C0DF00042984 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		243BB74B2627C0DF00042984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		243BB74D2627C0DF00042984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24631C25263D822200A41415 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		2482D3552628B3330055C78D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3237186FD83D1700649C250C /* Pods-Klachu-Klachu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Klachu-Klachu.debug.xcconfig"; path = "Target Support Files/Pods-Klachu-Klachu/Pods-Klachu-Klachu.debug.xcconfig"; sourceTree = "<group>"; };
+		9E4BCDED16CDB8FE60CB5830 /* Pods-Klachu-Klachu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Klachu-Klachu.release.xcconfig"; path = "Target Support Files/Pods-Klachu-Klachu/Pods-Klachu-Klachu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4CF3174F9B4E4DE45E6DDE6 /* Pods_Klachu_Klachu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +51,8 @@
 			children = (
 				243BB73E2627C0DB00042984 /* Klachu-Klachu */,
 				243BB73D2627C0DB00042984 /* Products */,
+				5897A80BE40963001957B6FA /* Pods */,
+				F8D3AB561BA729C66A9C2BCC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +74,7 @@
 				243BB7412627C0DB00042984 /* SceneDelegate.swift */,
 				243BB7482627C0DF00042984 /* Assets.xcassets */,
 				243BB74D2627C0DF00042984 /* Info.plist */,
+				2482D3552628B3330055C78D /* GoogleService-Info.plist */,
 			);
 			path = "Klachu-Klachu";
 			sourceTree = "<group>";
@@ -86,9 +98,27 @@
 		243BB7562627C32000042984 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				24631C25263D822200A41415 /* FirstViewController.swift */,
 				243BB7432627C0DB00042984 /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		5897A80BE40963001957B6FA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3237186FD83D1700649C250C /* Pods-Klachu-Klachu.debug.xcconfig */,
+				9E4BCDED16CDB8FE60CB5830 /* Pods-Klachu-Klachu.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F8D3AB561BA729C66A9C2BCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CE41F58375A2A874CE2F251 /* Pods_Klachu_Klachu.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 243BB7502627C0DF00042984 /* Build configuration list for PBXNativeTarget "Klachu-Klachu" */;
 			buildPhases = (
+				B9970B35B4DE54AA8B7DEB2E /* [CP] Check Pods Manifest.lock */,
 				243BB7382627C0DB00042984 /* Sources */,
 				243BB7392627C0DB00042984 /* Frameworks */,
 				243BB73A2627C0DB00042984 /* Resources */,
+				FC3D6CA6237F41F33EE3CBB4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,12 +181,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				243BB74C2627C0DF00042984 /* LaunchScreen.storyboard in Resources */,
+				2482D3562628B3330055C78D /* GoogleService-Info.plist in Resources */,
 				243BB7492627C0DF00042984 /* Assets.xcassets in Resources */,
 				243BB7472627C0DC00042984 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B9970B35B4DE54AA8B7DEB2E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Klachu-Klachu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC3D6CA6237F41F33EE3CBB4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Klachu-Klachu/Pods-Klachu-Klachu-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Klachu-Klachu/Pods-Klachu-Klachu-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Klachu-Klachu/Pods-Klachu-Klachu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		243BB7382627C0DB00042984 /* Sources */ = {
@@ -164,6 +239,7 @@
 				243BB7442627C0DB00042984 /* ViewController.swift in Sources */,
 				243BB7402627C0DB00042984 /* AppDelegate.swift in Sources */,
 				243BB7422627C0DB00042984 /* SceneDelegate.swift in Sources */,
+				24631C26263D822200A41415 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +383,7 @@
 		};
 		243BB7512627C0DF00042984 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3237186FD83D1700649C250C /* Pods-Klachu-Klachu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -326,6 +403,7 @@
 		};
 		243BB7522627C0DF00042984 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E4BCDED16CDB8FE60CB5830 /* Pods-Klachu-Klachu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

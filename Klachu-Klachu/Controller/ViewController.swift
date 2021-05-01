@@ -19,13 +19,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = UIColor(red: 0.4, green: 0.7215, blue: 1, alpha: 1)
         view.addSubview(imageView)
+        
         label.frame.origin = CGPoint(x: 85, y: 377)
         label.textAlignment = .center
         
         label.font = UIFont(name: "AmericanTypewriter-Bold", size: 25)
         label.text = ""
+        
         self.view.addSubview(label)
         let title = "Klachu - Klachu"
         var interval = 0.0
@@ -35,7 +38,11 @@ class ViewController: UIViewController {
             }
             interval += 1
         }
-        // Do any additional setup after loading the view.
+        DispatchQueue.main.asyncAfter(deadline: .now()+3.5, execute:{
+           self.performSegue(withIdentifier: "first", sender: self)
+            
+        })
+        
     }
     //adding layout subview with image in center
     override func viewDidLayoutSubviews() {
