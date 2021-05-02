@@ -27,7 +27,9 @@ class KlachuViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                 }
                 else{
-                    print("work")
+                    DispatchQueue.main.async{
+                       self.userInput.text = ""
+                    }
                 }
             }
             
@@ -43,9 +45,10 @@ class KlachuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
+        self.navigationController?.isNavigationBarHidden = false
         messageView.dataSource = self
         messageView.register(UINib(nibName: "CustomisedCell", bundle: nil), forCellReuseIdentifier: "messageCell")
-        
+        title = "Klachu - Klachu"
         showPreviousMessages()
     }
     
@@ -72,6 +75,8 @@ class KlachuViewController: UIViewController {
                             self.message.append(newMessage)
                             DispatchQueue.main.async {
                                 self.messageView.reloadData()
+                                let indexPath1 = IndexPath(row: self.message.count - 1, section: 0)
+                                self.messageView.scrollToRow(at: indexPath1, at: .top, animated: false)
                             }
                             
                         }
@@ -111,8 +116,25 @@ extension KlachuViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let msg = message[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! CustomisedCell
-        cell.message.text = message[indexPath.row].message
+        cell.message.text = msg.message
+        
+        
+        if msg.senderEmail == Auth.auth().currentUser?.email{
+            cell.bubble1.isHidden = true
+            cell.bubble.isHidden = false
+            cell.messageCell.backgroundColor = UIColor(named: "MyTeal")
+            cell.message.textColor = .white
+        }
+        else{
+            cell.bubble1.isHidden = false
+            cell.bubble.isHidden = true
+            cell.messageCell.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
+            cell.message.textColor = .black
+        }
+       
         return cell
     }
     

@@ -12,6 +12,7 @@ class CustomisedCell: UITableViewCell {
     @IBOutlet weak var messageCell: UIView!
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var bubble: UIImageView!
+    @IBOutlet weak var bubble1: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
