@@ -15,13 +15,12 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.isNavigationBarHidden = false
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func signInPressed(_ sender: Any) {
+    @IBAction func signInPressed(_ sender: UIButton) {
         if let email = userEmail.text, let password = userPassword.text{
-            
             Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
                 if let err = error{
                     let alert = UIAlertController(title: "Incorrect data!", message: err.localizedDescription, preferredStyle: .alert)

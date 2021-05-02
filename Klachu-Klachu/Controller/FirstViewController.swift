@@ -13,7 +13,7 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationController?.isNavigationBarHidden = true
         
         label.frame.origin = CGPoint(x: 85, y: 377)
