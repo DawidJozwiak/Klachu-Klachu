@@ -149,7 +149,7 @@
                     <connections>
                         <outlet property="userEmail" destination="VVO-mU-ylM" id="qqK-iI-d6p"/>
                         <outlet property="userPassword" destination="2gS-Ll-BUL" id="Mdb-kX-GV0"/>
-                        <segue destination="v3t-eq-HjK" kind="show" identifier="signInSegue" id="7yz-CL-cbm"/>
+                        <segue destination="3Xs-XK-vwe" kind="show" identifier="signInSegue" id="Xl9-Hc-W1K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3f-kd-2uN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -221,7 +221,7 @@
                     <connections>
                         <outlet property="email" destination="032-nM-Zb9" id="3NH-vL-s5M"/>
                         <outlet property="password" destination="Nk6-6p-tAY" id="qX7-37-5Ve"/>
-                        <segue destination="v3t-eq-HjK" kind="show" identifier="signUpSegue" id="VkF-74-Tac"/>
+                        <segue destination="3Xs-XK-vwe" kind="show" identifier="signUpSegue" id="oic-ap-wOA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGw-4i-V4z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -275,7 +275,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDn-Oy-7Ld" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4086.9565217391309" y="73.660714285714278"/>
+            <point key="canvasLocation" x="5129" y="86"/>
+        </scene>
+        <!--Message View Controller-->
+        <scene sceneID="Hg6-wm-aLq">
+            <objects>
+                <viewController id="3Xs-XK-vwe" customClass="MessageViewController" customModule="Klachu_Klachu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x2r-5d-62h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iUo-ye-1Xl">
+                                <rect key="frame" x="0.0" y="86" width="414" height="710"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="06F-LJ-iqR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="foh-YR-w2e"/>
+                    <connections>
+                        <segue destination="v3t-eq-HjK" kind="show" id="dk9-GY-38Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vt3-M6-Qnu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4141" y="86"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cyi-bX-h25">
@@ -302,7 +328,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7yz-CL-cbm"/>
+        <segue reference="oic-ap-wOA"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Black" width="1280" height="649"/>
@@ -310,7 +336,7 @@
         <image name="White" width="1280" height="649"/>
         <image name="capsule.fill" catalog="system" width="128" height="94"/>
         <namedColor name="MyTeal">
-            <color red="0.40680497879999999" green="0.72178804870000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.40700000524520874" green="0.72200000286102295" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
