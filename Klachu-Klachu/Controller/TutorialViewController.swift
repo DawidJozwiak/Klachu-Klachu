@@ -1,17 +1,18 @@
 //
-//  MessageViewController.swift
+//  TutorialViewController.swift
 //  Klachu-Klachu
 //
-//  Created by Dawid Jóźwiak on 5/14/21.
+//  Created by Dawid Jóźwiak on 5/16/21.
 //
 
 import UIKit
 
-class MessageViewController: UIViewController {
+class TutorialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        performSegue(withIdentifier: "messageSegue", sender: self)
+        
+        
         // Do any additional setup after loading the view.
     }
     

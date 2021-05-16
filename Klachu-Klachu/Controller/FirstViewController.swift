@@ -13,7 +13,7 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(":)")
         self.navigationController?.isNavigationBarHidden = true
         
         label.frame.origin = CGPoint(x: 85, y: 377)
@@ -23,6 +23,9 @@ class FirstViewController: UIViewController {
         label.text = "Klachu - Klachu"
         self.view.addSubview(label)
         
+        
+        
+        performSegue(withIdentifier: "tutorialSegue", sender: self)
     }
 
 }
