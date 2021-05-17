@@ -22,10 +22,13 @@ class FirstViewController: UIViewController {
         label.font = UIFont(name: "AmericanTypewriter-Bold", size: 25)
         label.text = "Klachu - Klachu"
         self.view.addSubview(label)
-        
-        
-        
-        performSegue(withIdentifier: "tutorialSegue", sender: self)
+        DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute:{
+            self.performSegue(withIdentifier: "tutorialSegue", sender: self)
+        })
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
 }
