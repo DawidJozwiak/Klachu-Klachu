@@ -10,6 +10,7 @@ import Firebase
 
 class SignUpViewController: UIViewController {
 
+    let db = Firestore.firestore()
     
     @IBAction func signUpPressed(_ sender: Any) {
         if let userEmail = email.text, let userPassword = password.text{
@@ -20,6 +21,13 @@ class SignUpViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                 }
                 else{
+                    self.db.collection("users").addDocument(data: ["email" : userEmail]){ (error) in
+                        if let err = error{
+                            let alert = UIAlertController(title: "Incorrect data!", message: err.localizedDescription, preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    }
                     self.performSegue(withIdentifier: "signUpSegue", sender: self)
                 }
             }
