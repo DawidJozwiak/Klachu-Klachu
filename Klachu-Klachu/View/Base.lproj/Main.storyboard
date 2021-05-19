@@ -292,13 +292,7 @@
                         <viewLayoutGuide key="safeArea" id="jfL-0g-VTN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0sG-dd-oqz">
-                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="UJ3-So-zXz">
-                            <connections>
-                                <action selector="logOutPressed:" destination="v3t-eq-HjK" id="V0q-eh-fJm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="0sG-dd-oqz"/>
                     <connections>
                         <outlet property="messageView" destination="Cf4-sy-cEr" id="6c5-DP-D8t"/>
                         <outlet property="sendButton" destination="Xl4-V2-0jF" id="gMv-ZD-85P"/>
@@ -336,7 +330,18 @@
                         <viewLayoutGuide key="safeArea" id="06F-LJ-iqR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="foh-YR-w2e"/>
+                    <navigationItem key="navigationItem" id="foh-YR-w2e">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="vrG-20-h68">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="OKG-lP-020">
+                                <rect key="frame" x="339" y="7" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logOutPressed:" destination="3Xs-XK-vwe" eventType="touchUpInside" id="Kw3-Lg-iIn"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="iUo-ye-1Xl" id="xHP-77-x8k"/>
                         <segue destination="v3t-eq-HjK" kind="show" identifier="messageSegue" id="dk9-GY-38Z"/>

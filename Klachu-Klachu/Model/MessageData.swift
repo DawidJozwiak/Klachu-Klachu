@@ -10,4 +10,5 @@ import Foundation
 struct MessageData{
     let senderEmail: String
     let message: String
+    let reciever: String
 }
