@@ -125,13 +125,13 @@
 		243BB7562627C32000042984 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				24631C25263D822200A41415 /* FirstViewController.swift */,
 				243BB7432627C0DB00042984 /* ViewController.swift */,
+				24631C25263D822200A41415 /* FirstViewController.swift */,
+				245147762650B60A00CBE583 /* TutorialViewController.swift */,
 				24631C2D263DE4E800A41415 /* SignUpViewController.swift */,
 				24631C30263DEDEB00A41415 /* SignInViewController.swift */,
-				24631C33263EC07300A41415 /* KlachuViewController.swift */,
 				24514772264DDF3C00CBE583 /* MessageViewController.swift */,
-				245147762650B60A00CBE583 /* TutorialViewController.swift */,
+				24631C33263EC07300A41415 /* KlachuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

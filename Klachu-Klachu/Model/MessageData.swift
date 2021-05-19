@@ -7,6 +7,7 @@
 
 import Foundation
 
+//Struct to hold messages information
 struct MessageData{
     let senderEmail: String
     let message: String

@@ -20,14 +20,18 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func signInPressed(_ sender: UIButton) {
+        //Check if both email and password are not nil
         if let email = userEmail.text, let password = userPassword.text{
+            //Call firestore authentication
             Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
                 if let err = error{
+                    //print error if any was found
                     let alert = UIAlertController(title: "Incorrect data!", message: err.localizedDescription, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
                 else{
+                    //Show messageview
                     self.performSegue(withIdentifier: "signInSegue", sender: self)
                 }
             }

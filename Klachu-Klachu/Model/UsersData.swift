@@ -7,6 +7,7 @@
 
 import Foundation
 
+//Struct to hold users information
 struct UsersData{
     let email: String
 }
