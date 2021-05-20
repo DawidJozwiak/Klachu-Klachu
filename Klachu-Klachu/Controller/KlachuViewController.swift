@@ -99,8 +99,6 @@ class KlachuViewController: UIViewController {
                     }
                 }
             }
-        
-        
     }
 }
 
@@ -125,6 +123,7 @@ extension KlachuViewController: UITableViewDataSource{
                 cell.messageCell.backgroundColor = UIColor(named: "MyTeal")
                 cell.message.textColor = .white
             }
+            //Set colors/bubble/text color and message according to which user is speaking
             else if msg.senderEmail == rec{
                 cell.message.text = msg.message
                 cell.bubble1.isHidden = false
@@ -133,12 +132,7 @@ extension KlachuViewController: UITableViewDataSource{
                 cell.message.textColor = .black
             }
         }
-        
-        
-        
         return cell
     }
-    
-    
 }
 

@@ -34,6 +34,25 @@ class MessageViewController: UIViewController {
         presentUsers()
         
     }
+        
+    @IBAction func textButton(_ sender: UIButton) {
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = "Some default text"
+        }
+
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            print("Text field: \(textField.text)")
+        }))
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
     
     //Log out button pressed event
     @IBAction func logOutPressed(_ sender: UIButton) {
@@ -51,7 +70,7 @@ class MessageViewController: UIViewController {
                     _ = self.navigationController?.popToViewController(vc as! FirstViewController, animated: true)
                 }
             }
-         //catch exception of signing out
+            //catch exception of signing out
         } catch let signOutError as NSError{
             let alert = UIAlertController(title: "Log out error!", message: signOutError as? String, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
@@ -78,10 +97,10 @@ class MessageViewController: UIViewController {
                             //take data from doc
                             let data = doc.data()
                             //check if there is email
-                            if let email = data["email"] as? String{
+                            if let email = data["email"] as? String, let nick = data["nickname"] as? String, let img = data["image"] as? Int{
                                 //if email is not related to sender's email show users
                                 if email != sender{
-                                    let newUser = UsersData(email: email)
+                                    let newUser = UsersData(email: email, nickname: nick, imageNumber: img)
                                     self.users.append(newUser)
                                     DispatchQueue.main.async {
                                         self.tableView.reloadData()
@@ -101,7 +120,7 @@ class MessageViewController: UIViewController {
             vc.reciever = selectedUser
         }
     }
-
+    
 }
 
 //MARK: -UITableView methods
@@ -114,13 +133,30 @@ extension MessageViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let usr = users[indexPath.row]
         let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = usr.email
+        cell.textLabel?.text = usr.nickname
+        var image: UIImage
+        //switch image according to user's choice
+        switch usr.imageNumber {
+        case 1:
+            image = #imageLiteral(resourceName: "img_avatar")
+        case 2:
+            image = #imageLiteral(resourceName: "avatar6")
+        case 3:
+            image = #imageLiteral(resourceName: "avatar2")
+        case 4:
+            image = #imageLiteral(resourceName: "avatar5")
+        case 5:
+            image = #imageLiteral(resourceName: "img_avatar2")
+        default:
+            image = UIImage(systemName: "person.fill")!
+        }
+        cell.detailTextLabel?.text = ">"
+        cell.imageView?.image = image
         return cell
     }
     //method that triggers whenever user press on the row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedUser = users[indexPath.row].email
         performSegue(withIdentifier: "messageSegue", sender: selectedUser)
-        
     }
 }

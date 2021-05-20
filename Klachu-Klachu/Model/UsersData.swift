@@ -10,4 +10,6 @@ import Foundation
 //Struct to hold users information
 struct UsersData{
     let email: String
+    let nickname: String
+    let imageNumber: Int
 }

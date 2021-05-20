@@ -56,8 +56,6 @@ class ViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.center = view.center
         //creating delay before animation
-        
-        
     }
 
 }
