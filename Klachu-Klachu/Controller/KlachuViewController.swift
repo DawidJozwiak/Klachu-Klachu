@@ -14,9 +14,15 @@ class KlachuViewController: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var userInput: UITextField!
     @IBOutlet weak var messageView: UITableView!
+    @IBOutlet weak var blockButton: UIBarButtonItem!
+    @IBOutlet weak var blockedButton: UIButton!
     
-    //Reciever email taken from previous viewcontroller
+    //alert variable set to animate "please wait"
+    let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+    //Reciever email delegate taken from previous viewcontroller
     var reciever: String?
+    //Boolean variable to check if user is blocked
+    var isBlocked: Bool = false
     //Create firestore database object
     let db = Firestore.firestore()
     //send button pressed event
@@ -44,6 +50,60 @@ class KlachuViewController: UIViewController {
     //declared messagedata structure
     var message: [MessageData] = []
     
+    
+    @IBAction func blockUser(_ senderr: UIButton) {
+        if let rec = reciever, let sender = Auth.auth().currentUser?.email{
+            if isBlocked{
+                db.collection("blocked").getDocuments{ (querySnapshot, error) in
+                    if let err = error{
+                        let alert = UIAlertController(title: "There is some problem!", message: err.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    } else{
+                        if let docs = querySnapshot?.documents{
+                            for doc in docs {
+                                let data = doc.data()
+                                if let whoBlocked = data["sender"] as? String, let whoIsBlocked = data["reciever"] as? String{
+                                    if(whoBlocked == sender && whoIsBlocked == rec){
+                                        print("Uhm2")
+                                        doc.reference.delete()
+                                    }
+                                }
+                            }
+                            self.blockedButton.setTitle("Block", for: .normal)
+                            self.isBlocked = false
+                        }
+                    }
+                }
+            }
+            else{
+                self.db.collection("blocked").addDocument(data: ["sender" : sender, "reciever" : rec]){ (error) in
+                    if let err = error{
+                        let alert = UIAlertController(title: "There is some problem!", message: err.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    else{
+                        let alert = UIAlertController(title: "User has been blocked", message: "", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        senderr.setTitle("Unblock", for: .normal)
+                        self.isBlocked = true
+                    }
+                }
+            }
+        }
+    }
+    
+    func loading(){
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        loadingIndicator.startAnimating();
+        self.alert.view.addSubview(loadingIndicator)
+        self.present(self.alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //show navigation bar and back button
@@ -56,11 +116,71 @@ class KlachuViewController: UIViewController {
         //set title of naviagation bar
         title = "Klachu - Klachu"
         //show messages table view
-        showPreviousMessages()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkIfBlockedByReciever()
+        checkIfBlockedBySender()
+        showPreviousMessages(){}
+    }
+    
+    func checkIfBlockedByReciever(){
+        if let rec = reciever, let sender = Auth.auth().currentUser?.email{
+            db.collection("blocked").getDocuments { (querySnapshot, error) in
+                if let err = error{
+                    let alert = UIAlertController(title: "There is some problem!", message: err.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                } else{
+                    //Contains objects and is able to access documents
+                    if let docs = querySnapshot?.documents{
+                        for doc in docs {
+                            let data = doc.data()
+                            if let whoBlocked = data["sender"] as? String, let whoIsBlocked = data["reciever"] as? String{
+                                if(whoBlocked == rec && whoIsBlocked == sender){
+                                    let alert = UIAlertController(title: "User has blocked you!", message: "You have been blocked by this user and cannot text him!", preferredStyle: .alert)
+                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {  _ in
+                                        _ = self.navigationController?.popViewController(animated: true)
+                                    }))
+                                    self.present(alert, animated: true, completion: nil)
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    func checkIfBlockedBySender(){
+        if let rec = reciever, let sender = Auth.auth().currentUser?.email{
+            db.collection("blocked").getDocuments { (querySnapshot, error) in
+                if let err = error{
+                    let alert = UIAlertController(title: "There is some problem!", message: err.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                } else{
+                    //Contains objects and is able to access documents
+                    if let docs = querySnapshot?.documents{
+                        for doc in docs {
+                            let data = doc.data()
+                            if let whoBlocked = data["sender"] as? String, let whoIsBlocked = data["reciever"] as? String{
+                                if(whoBlocked == sender && whoIsBlocked == rec){
+                                    self.blockedButton.setTitle("Unblock", for: .normal)
+                                    self.isBlocked = true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     //show previous messages from database
-    func showPreviousMessages(){
+    func showPreviousMessages(completion: () -> Void){
         //enter messages firebase and order by date of sending
         db.collection("messages")
             .order(by: "date")
@@ -99,8 +219,11 @@ class KlachuViewController: UIViewController {
                     }
                 }
             }
+        completion()
     }
+    
 }
+
 
 //MARK: -UITableView methods
 extension KlachuViewController: UITableViewDataSource{

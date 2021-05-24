@@ -369,8 +369,24 @@
                         <viewLayoutGuide key="safeArea" id="jfL-0g-VTN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0sG-dd-oqz"/>
+                    <navigationItem key="navigationItem" id="0sG-dd-oqz">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Zi0-lf-8vX">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="A4w-I1-mfJ">
+                                <rect key="frame" x="302" y="5.5" width="92" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Block user">
+                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="blockUser:" destination="v3t-eq-HjK" eventType="touchUpInside" id="gY8-yy-o96"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="blockButton" destination="Zi0-lf-8vX" id="5QU-wR-FLV"/>
+                        <outlet property="blockedButton" destination="A4w-I1-mfJ" id="QLm-Wk-CU6"/>
                         <outlet property="messageView" destination="Cf4-sy-cEr" id="6c5-DP-D8t"/>
                         <outlet property="sendButton" destination="Xl4-V2-0jF" id="gMv-ZD-85P"/>
                         <outlet property="userInput" destination="VE1-Zr-qba" id="gtb-4L-lLi"/>
@@ -507,6 +523,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

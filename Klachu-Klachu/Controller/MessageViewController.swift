@@ -36,22 +36,22 @@ class MessageViewController: UIViewController {
     }
         
     @IBAction func textButton(_ sender: UIButton) {
-        //1. Create the alert controller.
+        //Create the alert controller..
         let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
 
-        //2. Add the text field. You can configure it however you need.
+        //Add the text field.
         alert.addTextField { (textField) in
-            textField.text = "Some default text"
+            textField.text = ""
         }
 
-        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        //Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
-            print("Text field: \(textField.text)")
         }))
 
-        // 4. Present the alert.
+        //Present the alert.
         self.present(alert, animated: true, completion: nil)
+        
     }
     
     //Log out button pressed event
