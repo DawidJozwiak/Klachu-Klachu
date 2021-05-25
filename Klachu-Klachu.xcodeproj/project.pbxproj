@@ -27,6 +27,8 @@
 		24631C34263EC07300A41415 /* KlachuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24631C33263EC07300A41415 /* KlachuViewController.swift */; };
 		24631C37263ED70400A41415 /* MessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24631C36263ED70400A41415 /* MessageData.swift */; };
 		2482D3562628B3330055C78D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2482D3552628B3330055C78D /* GoogleService-Info.plist */; };
+		24B843D3265D799500BFDBE3 /* CustomUsersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B843D1265D799500BFDBE3 /* CustomUsersViewCell.swift */; };
+		24B843D4265D799500BFDBE3 /* CustomUsersViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B843D2265D799500BFDBE3 /* CustomUsersViewCell.xib */; };
 		F4CF3174F9B4E4DE45E6DDE6 /* Pods_Klachu_Klachu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE41F58375A2A874CE2F251 /* Pods_Klachu_Klachu.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		24631C33263EC07300A41415 /* KlachuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlachuViewController.swift; sourceTree = "<group>"; };
 		24631C36263ED70400A41415 /* MessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageData.swift; sourceTree = "<group>"; };
 		2482D3552628B3330055C78D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		24B843D1265D799500BFDBE3 /* CustomUsersViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUsersViewCell.swift; sourceTree = "<group>"; };
+		24B843D2265D799500BFDBE3 /* CustomUsersViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomUsersViewCell.xib; sourceTree = "<group>"; };
 		3237186FD83D1700649C250C /* Pods-Klachu-Klachu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Klachu-Klachu.debug.xcconfig"; path = "Target Support Files/Pods-Klachu-Klachu/Pods-Klachu-Klachu.debug.xcconfig"; sourceTree = "<group>"; };
 		9E4BCDED16CDB8FE60CB5830 /* Pods-Klachu-Klachu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Klachu-Klachu.release.xcconfig"; path = "Target Support Files/Pods-Klachu-Klachu/Pods-Klachu-Klachu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +124,8 @@
 				243BB74A2627C0DF00042984 /* LaunchScreen.storyboard */,
 				244B1E7D263EE57F00808B65 /* CustomisedCell.swift */,
 				244B1E7E263EE57F00808B65 /* CustomisedCell.xib */,
+				24B843D1265D799500BFDBE3 /* CustomUsersViewCell.swift */,
+				24B843D2265D799500BFDBE3 /* CustomUsersViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +229,7 @@
 			files = (
 				243BB74C2627C0DF00042984 /* LaunchScreen.storyboard in Resources */,
 				2482D3562628B3330055C78D /* GoogleService-Info.plist in Resources */,
+				24B843D4265D799500BFDBE3 /* CustomUsersViewCell.xib in Resources */,
 				24631C2A263DC36A00A41415 /* README.md in Resources */,
 				244B1E80263EE57F00808B65 /* CustomisedCell.xib in Resources */,
 				243BB7492627C0DF00042984 /* Assets.xcassets in Resources */,
@@ -281,6 +288,7 @@
 			files = (
 				243BB7442627C0DB00042984 /* ViewController.swift in Sources */,
 				244B1E7F263EE57F00808B65 /* CustomisedCell.swift in Sources */,
+				24B843D3265D799500BFDBE3 /* CustomUsersViewCell.swift in Sources */,
 				243BB7402627C0DB00042984 /* AppDelegate.swift in Sources */,
 				24631C31263DEDEB00A41415 /* SignInViewController.swift in Sources */,
 				24514773264DDF3C00CBE583 /* MessageViewController.swift in Sources */,

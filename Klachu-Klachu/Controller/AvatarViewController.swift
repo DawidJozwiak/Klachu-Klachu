@@ -23,19 +23,32 @@ class AvatarViewController: UIViewController {
     }
     
     @IBAction func mainButton(sender: UIButton) {
+        let arr = [""]
         chosenImage = sender.tag
         //if user signed up correctly add his nickname to the database
         if let mail = userEmail, let nick = userNickname{
-            self.db.collection("users").addDocument(data: ["email" : mail, "nickname" : nick, "image" : chosenImage]){ (error) in
+            self.db.collection("users").document(nick).setData(["email" : mail, "nickname" : nick, "image" : chosenImage]){ (error) in
                 if let err = error{
                     let alert = UIAlertController(title: "Incorrect data!", message: err.localizedDescription, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
                 else{
-                    self.performSegue(withIdentifier: "avatarSegue", sender: self)
+                    self.db.collection("friends").document(nick).setData(["user": mail, "friendsList" : arr]){
+                        (error) in
+                            if let err = error{
+                                let alert = UIAlertController(title: "Incorrect data!", message: err.localizedDescription, preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                            else{
+                                self.performSegue(withIdentifier: "avatarSegue", sender: self)
+                            }
+                    }
+                   
                 }
             }
+            
         }
     }
 }
