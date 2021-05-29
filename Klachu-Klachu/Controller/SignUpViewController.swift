@@ -27,6 +27,11 @@ class SignUpViewController: UIViewController {
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
+                if userNickname == ""{
+                    let alert = UIAlertController(title: "Incorrect data!", message: "Enter your nickname", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
                 else{
                     //go to the messageviewcontroller if successful
                     self.nick = userNickname

@@ -20,6 +20,8 @@ class MessageViewController: UIViewController {
     var nickname: String?
     //var friends: [String]?
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -210,7 +212,20 @@ class MessageViewController: UIViewController {
 extension MessageViewController: UITableViewDataSource, UITableViewDelegate{
     //return number of rows (users ammount)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+        if users.count == 0{
+            emptyLabel.text = "You don't have any pen pals :("
+            emptyLabel.textColor = .darkGray
+            emptyLabel.textAlignment = NSTextAlignment.center
+            self.tableView.backgroundView = emptyLabel
+            self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+            return 0
+        } else {
+            emptyLabel.isHidden = true
+            tableView.backgroundView = nil
+            return users.count
+        
+        }
     }
     //setting cell informations
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
